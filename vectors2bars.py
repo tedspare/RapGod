@@ -7,17 +7,14 @@ import json, random
 def pos2random(index):
 
 	# get vocab extracted from raps.txt
-	with open("vocab.json", "r") as f:
+	with open("vocabPlus.json", "r") as f:
 		vocab = json.load(f)
-
-	# build an indexer for parts of speech
-	posIndex = []
-	for i in vocab.keys():
-		posIndex.append(i)
+		posIndex = list(vocab.keys())
 
 	# pick a random word from the options for that POS
 	pos = posIndex[index - 1]
 	pos = vocab[pos]
+
 	options = list(pos.keys())
 	word = random.choice(options)
 
